@@ -1,6 +1,18 @@
 workflow:
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'pull_request_event'
+    - if: $CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME == 'main'
+
+always-run:
+  script: 
+    - echo "Always run"
+    - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME
+    - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_REPOSITORY
+    - echo $CI_EXTERNAL_PULL_REQUEST_SOURCE_REPOSITORY
+    - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_IID
+    - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_URL
+    - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_COMMIT
+    - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_COMMIT_URL
+
 
 run test: 
     image: node:17-alpine
