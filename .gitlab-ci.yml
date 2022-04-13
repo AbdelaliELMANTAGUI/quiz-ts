@@ -1,8 +1,13 @@
 workflow:
   rules:
-    - if: $CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME == 'main'
+    - if: $CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH
+
+stages:
+  - start
+  - test
 
 always-run:
+  stage: start
   script: 
     - echo "Always run"
     - echo $CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME
@@ -15,6 +20,7 @@ always-run:
 
 
 run test: 
+    stage: test
     image: node:17-alpine
     script:
       - npm i
