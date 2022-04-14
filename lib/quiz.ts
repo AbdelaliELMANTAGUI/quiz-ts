@@ -52,11 +52,15 @@ export class Quiz implements Test {
         if(!question) throw new NoQuestionException('No question was found');        
         if(this.compareAnsers(question.rightAnswer,answer)){
             this.player.score++;
-            this.answers.push(answer);
+            this.answers.push({...answer,correct:true});
             return true;
         }
+        this.answers.push({...answer,correct:false});
         this.player.score--;
         return false;
     }
 
+    getScore():number{
+        return this.player.score;
+    }
 }
