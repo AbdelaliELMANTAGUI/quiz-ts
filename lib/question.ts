@@ -5,4 +5,5 @@ export default interface Question {
     text: string;
     rightAnswer: Answer;
     options: Option[];
+    duration: number;
 }

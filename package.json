@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"    
+    "test": "jest",
+    "exec": "ts-node index.ts" 
+
   },
   "keywords": [],
   "author": "",
