@@ -39,7 +39,11 @@ const quiz = new Quiz({
   },
 });
 
-const answer = quiz.next()
+const answer = quiz
+        .next()
+        .whenTimedOut(()=>console.log('hii there'))
+
+    console.log(answer);
     // .whenTimedOut(()=>{
     //   console.log("it timed out")
     // })
